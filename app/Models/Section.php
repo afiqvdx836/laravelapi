@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subject extends Model
+class Section extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'class_id', 'subject_name', 'code_subject'
-    ];
 }
