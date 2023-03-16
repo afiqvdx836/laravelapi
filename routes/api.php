@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SclassController;
+use App\Http\Controllers\SectionController;
 use App\Http\Controllers\SubjectController;
 
 
@@ -28,4 +29,6 @@ Route::get('/class/{class}', [SclassController::class, 'show']);
 Route::patch('/class/{class}', [SclassController::class, 'update']);
 
 Route::resource('/subject', SubjectController::class);
+Route::resource('/section', SectionController::class);
+
 
