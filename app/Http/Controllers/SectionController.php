@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Section;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SectionController extends Controller
 {
@@ -55,7 +56,8 @@ class SectionController extends Controller
      */
     public function show($id)
     {
-        //
+        $sect = Section::findOrFail($id);
+        return response()->json($sect);
     }
 
     /**
@@ -78,7 +80,9 @@ class SectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $section = Section::findOrFail($id);
+        $section->update($request->all());
+        return response('Updated');
     }
 
     /**
@@ -89,6 +93,7 @@ class SectionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('sections')->where('id',$id)->delete();
+        return response('deleted');
     }
 }
